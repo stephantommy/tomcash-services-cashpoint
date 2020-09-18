@@ -1,10 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require('path');
 
+const key = require(path.join(__dirname, '/config/keys'));
+const host = key.host;
+const port = key.port;
+const dbUrl = key.mongoUrl;
 const app = express();
-const port = process.env.PORT || 3001;
-const dbUrl = require('./config/keys').mongoUrl;
 
 mongoose
     .connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -17,4 +20,4 @@ app.use(express.urlencoded({extended:false}));
 
 app.use('/api/cashpoint', require('./routes/cashpoint'));
 
-app.listen(port, () => console.log("tomcash cashpoint services is running on port " + port));
+app.listen(port, host, () => console.log("tomcash cashpoint services is running on port " + port));

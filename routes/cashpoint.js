@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const path = require('path');
 
-const Cashpoint = require('../model/Cashpoint');
+const Cashpoint = require(path.join(__dirname, '../model/Cashpoint'));
 
 router.get('/', (req, res) => {
     console.log('getting cashpoint list...');
