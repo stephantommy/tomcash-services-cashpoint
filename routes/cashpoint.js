@@ -7,23 +7,12 @@ const Cashpoint = require(path.join(__dirname, '../model/Cashpoint'));
 router.get('/', (req, res) => {
     console.log('getting cashpoint list...');
     
-    // Cashpoint.find()
-    //     .sort({ cashpID: 1 })
-    //     .then(cashpoints => {
-    //         console.log('Cashpoint list : ', {cashpointList : cashpoints});
-    //         res.json({cashpointList : cashpoints});
-    //     });
-    
-    res.json({cashpointList : [
-        {
-            cashpType: "Branch",
-            cashpID: "B0001",
-            cashpName: "KCU Asemka",
-            address: "Jln. Test",
-            city: "Jakarta Barat",
-            state: "DKI Jakarta"
-        }
-    ]});
+    Cashpoint.find()
+        .sort({ cashpID: 1 })
+        .then(cashpoints => {
+            console.log('Cashpoint list : ', {cashpointList : cashpoints});
+            res.json({cashpointList : cashpoints});
+        });
 });
 
 router.post('/addCashpoint', (req, res) => {
