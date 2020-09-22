@@ -14,14 +14,16 @@ router.get('/', (req, res) => {
     //         res.json({cashpointList : cashpoints});
     //     });
     
-    res.json({cashpointList : {
-        cashpType: "Branch",
-        cashpID: "B0001",
-        cashpName: "KCU Asemka",
-        address: "Jln. Test",
-        city: "Jakarta Barat",
-        state: "DKI Jakarta",
-    }});
+    res.json({cashpointList : [
+        {
+            cashpType: "Branch",
+            cashpID: "B0001",
+            cashpName: "KCU Asemka",
+            address: "Jln. Test",
+            city: "Jakarta Barat",
+            state: "DKI Jakarta"
+        }
+    ]});
 });
 
 router.post('/addCashpoint', (req, res) => {
