@@ -3,6 +3,7 @@
 environment variable : <br />
 | Description  | Variable name |
 | ------------- | ------------- |
-| application host  | process.env.HOST  |
-| application port  | process.env.PORT  |
-| MongoDB URL  | process.env.MONGODB_URL  |
+| MongoDB URL  | MONGODB_URL  |
+
+mongodb_url: <br />
+mongodb://acm:devacm@devnosqldb01:28001,devnosqldb02:28001,devnosqldb03:28001/acmdev?
